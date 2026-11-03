@@ -21,10 +21,10 @@ Pulsed eddy-current testing (PECT) interrogates conductive specimens via broadba
 ![Physical Reservoir Computing Framework](figures/physical_reservoir_framework.png)
 
 ### Main Contributions
-1. **Linear Physical Reservoir Computing for PECT**: Demonstrates that raw electromagnetic diffusion transients form linearly separable trajectories, outperforming parameter-matched 500-unit Software Echo State Networks (`68.21%` vs `53.63%` LOCO Macro F1; `94.77%` vs `54.65%` fold-averaged ROC-AUC with spatial post-filtering) and scalar peak indicators (`53.46%` Macro F1).
-2. **Leakage-Free Spatial Evaluation Protocol**: Establishes **Leave-One-Corrosion-Out (LOCO) with an 8 px (8 mm) exclusion guard band** as the primary benchmark protocol for raster-scanned NDE, exposing a **22.43 percentage-point Macro F1 inflation** under conventional random splitting (`88.73%` vs `66.30%`).
-3. **Signal-Validated Label Registration**: Validates ground-truth defect coordinates directly against raw 500-channel electromagnetic transients via multi-channel Welch $t^2$ maximization, correcting a $(-2, 0)\text{ px}$ mechanical origin offset ($1.362\times$ total Welch $t^2$ contrast gain).
-4. **Fundamental Bounds of Linear Readouts**: Shows that a linear ridge readout accurately recovers zero-shot lateral defect diameter across the 9 held-out flaws ($R^2 = 0.968$, $\mathrm{RMSE} = 0.29\text{ mm}$, $\mathrm{MAE} = 0.20\text{ mm}$), whereas continuous subsurface wall-loss depth/volume inversion and sequential Jaeger memory capacity ($MC$) are unidentifiable from single-specimen, single-pulse linear calibration.
+1. **Linear Physical Reservoir Readout for PECT**: Shows that raw electromagnetic diffusion transients support unseen subsurface defect detection with a closed-form ridge readout, outperforming parameter-matched 500-unit Software Echo State Networks (`68.21%` vs `53.63%` LOCO Macro F1; `94.77%` vs `54.65%` fold-averaged ROC-AUC with spatial post-filtering) and scalar peak indicators (`53.46%` Macro F1) on the Al2024 benchmark plate.
+2. **Guard-Band Spatial Evaluation Protocol**: Uses **Leave-One-Corrosion-Out (LOCO) with an 8 px (8 mm) exclusion guard band** as the primary benchmark protocol for raster-scanned NDE, quantifying a **22.43 percentage-point Macro F1 inflation** under conventional random pixel splitting (`88.73%` vs `66.30%`).
+3. **Signal-Validated Label Registration**: Aligns ground-truth defect coordinates against the 500-channel electromagnetic transients via multi-channel Welch $t^2$ maximization, identifying a $(-2, 0)\text{ px}$ mechanical origin offset ($1.362\times$ total Welch $t^2$ contrast gain).
+4. **Scope and Limits of Linear Readouts**: Evaluates what a linear ridge readout can and cannot recover from single-specimen PECT scans: it estimates held-out lateral defect diameter across the 9 machined flaws ($R^2 = 0.968$, $\mathrm{RMSE} = 0.29\text{ mm}$, $\mathrm{MAE} = 0.20\text{ mm}$), whereas continuous subsurface wall-loss depth/volume inversion and sequential Jaeger memory capacity ($MC$) cannot be identified from single-specimen, single-pulse linear calibration.
 
 ---
 
@@ -91,3 +91,4 @@ Pulsed eddy-current testing (PECT) interrogates conductive specimens via broadba
 ├── train.py                                # [TO BE RELEASED UPON MANUSCRIPT ACCEPTANCE]
 └── visualize.py                            # [TO BE RELEASED UPON MANUSCRIPT ACCEPTANCE]
 ```
+

@@ -1,0 +1,58 @@
+# Python cache & environment
+__pycache__/
+*.py[cod]
+*$py.class
+.vscode/
+.DS_Store
+
+# Legacy archives & backups
+V1/
+V1.zip
+figures_backup/
+log/
+
+# Manuscript source & compiled PDF (withheld during peer review)
+paper/
+
+# Full dataset loader, training, figure generator & calibration scripts
+# (to be released upon formal manuscript acceptance)
+dataset.py
+train.py
+visualize.py
+audit_*.py
+audit_*.json
+calibrate_*.py
+calibrate_*.json
+diagnose_*.py
+diagnose_*.json
+legacy_published_claims.json
+
+# Raw splits, masks, states, trained model checkpoints, predictions & detailed JSONs
+# (to be released upon formal manuscript acceptance)
+runs/2026-08-28_honest-rerun/
+runs/LATEST
+runs/latest
+runs/*/splits/
+runs/*/masks/
+runs/*/states/
+runs/*/models/
+runs/*/checkpoints/
+runs/*/predictions/
+runs/*/figures/
+runs/*/tables/
+runs/*/logs/
+runs/*/manifest.json
+runs/*/metrics/per_fold.json
+runs/*/metrics/roc_*.json
+runs/*/metrics/threshold_sweeps.json
+runs/*/metrics/noise_robustness.json
+runs/*/metrics/reservoir_characterisation.json
+runs/*/metrics/derived.json
+
+# Auxiliary intermediate figures
+figures/fig03_threshold.png
+figures/fig04_roc_blocked.png
+figures/fig05_roc_random.png
+figures/fig06_maps_test.png
+figures/fig18_raw_spect_transient_waveforms.png
+runs/2026-08-28_guardfix/

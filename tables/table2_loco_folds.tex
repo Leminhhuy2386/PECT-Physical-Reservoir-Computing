@@ -1,0 +1,24 @@
+\begin{table*}[t]
+\centering
+\caption{Per-fold leave-one-corrosion-out (LOCO) detection and lateral diameter sizing results. Each fold holds out one machined defect entirely, together with an 8\,px guard band, so no training pixel lies inside the patch or post-filter footprint of a test pixel. Detection metrics are shown for the filtered spatio-temporal patch readout (\texttt{patch4500\_filt}), and zero-shot lateral diameter predictions (mean $\pm$ s.d.\ over held-out defect pixels) are obtained from the linear ridge regressor on 500D physical reservoir states (\texttt{rc500}).}
+\label{tab:loco}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}c c c c c c c c@{}}
+\toprule
+\textbf{Fold} & \textbf{Held-out defect} & \textbf{True diam. (mm)} & \textbf{Macro F1 (\%)} & \textbf{Defect recall (\%)} & \textbf{ROC-AUC (\%)} & \textbf{Cutoff $\theta^*$} & \textbf{Pred. diam. (mm)} \\
+\midrule
+1 & $C_{1}$ & 10 & 79.02 & 46.91 & 96.10 & +0.100 & 10.01 $\pm$ 0.34 \\
+2 & $C_{2}$ & 10 & 90.12 & 71.60 & 99.49 & -0.030 & 10.00 $\pm$ 0.38 \\
+3 & $C_{3}$ & 10 & 92.05 & 82.72 & 99.32 & +0.040 & 9.78 $\pm$ 0.45 \\
+4 & $C_{4}$ & 8 & 47.85 & 0.00 & 96.92 & -0.040 & 8.28 $\pm$ 0.32 \\
+5 & $C_{5}$ & 8 & 49.89 & 2.04 & 99.65 & -0.020 & 7.83 $\pm$ 0.42 \\
+6 & $C_{6}$ & 8 & 89.13 & 77.55 & 98.92 & -0.080 & 7.73 $\pm$ 0.39 \\
+7 & $C_{7}$ & 6 & 48.53 & 0.00 & 78.84 & +0.000 & 6.00 $\pm$ 0.49 \\
+8 & $C_{8}$ & 6 & 48.53 & 0.00 & 95.45 & +0.170 & 6.15 $\pm$ 0.40 \\
+9 & $C_{9}$ & 6 & 51.60 & 3.45 & 88.23 & +0.160 & 6.72 $\pm$ 0.36 \\
+\midrule
+\multicolumn{3}{@{}l}{\textbf{Mean $\pm$ s.d. (or summary)}} & \textbf{66.30 $\pm$ 19.35} & \textbf{31.59} & \textbf{94.77} & \textbf{+0.033} & \textbf{$R^2 = 0.968$, RMSE $= 0.29$\,mm} \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

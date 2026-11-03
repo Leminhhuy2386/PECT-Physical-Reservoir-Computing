@@ -1,0 +1,19 @@
+{
+  "memory_capacity": {
+    "measured": false,
+    "reason": "Memory capacity in the sense of Jaeger (2001) requires driving the reservoir with a temporally extended input stream and training readouts to reconstruct u(t-k) from the reservoir state. This dataset contains one independent Gaussian pulse response per scan location, with no sequential excitation, so MC is not identifiable. idea.md anticipated exactly this restriction.",
+    "do_not_substitute": "The lagged autocorrelation of a scan-averaged waveform is NOT memory capacity; it measures smoothness and any low-pass signal scores highly on it."
+  },
+  "defect_depth_and_volume": {
+    "measured": false,
+    "reason": "The project's own sources disagree on the ground-truth depths (dataset_loader.py lists 0.86/0.66/0.48... mm; the previous manuscript Table 2B lists 1/2/3 mm). Without a documented depth reference, depth and volume regression cannot be evaluated honestly."
+  },
+  "physical_size_calibration": {
+    "measured": false,
+    "reason": "The pixel-to-millimetre scale (1 px = 1 mm) is implied by the project's own claim that r=5 px corresponds to d=10 mm, but is not independently documented. All millimetre statements inherit this assumption."
+  },
+  "inference_time": {
+    "measured": true,
+    "note": "See timing.json; measured with a timer, reported per scan point."
+  }
+}

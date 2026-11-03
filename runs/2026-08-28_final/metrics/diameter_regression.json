@@ -1,0 +1,81 @@
+{
+  "per_fold": [
+    {
+      "fold": 1,
+      "held_out_defect": 1,
+      "true_diameter_mm": 10.0,
+      "pred_diameter_mm_mean": 10.007652794283715,
+      "pred_diameter_mm_std": 0.3431480005368272,
+      "n_defect_pixels": 81
+    },
+    {
+      "fold": 2,
+      "held_out_defect": 2,
+      "true_diameter_mm": 10.0,
+      "pred_diameter_mm_mean": 10.004929263894688,
+      "pred_diameter_mm_std": 0.37826493651625476,
+      "n_defect_pixels": 81
+    },
+    {
+      "fold": 3,
+      "held_out_defect": 3,
+      "true_diameter_mm": 10.0,
+      "pred_diameter_mm_mean": 9.783409430435,
+      "pred_diameter_mm_std": 0.4485076044161899,
+      "n_defect_pixels": 81
+    },
+    {
+      "fold": 4,
+      "held_out_defect": 4,
+      "true_diameter_mm": 8.0,
+      "pred_diameter_mm_mean": 8.281819354839367,
+      "pred_diameter_mm_std": 0.31786529377772277,
+      "n_defect_pixels": 49
+    },
+    {
+      "fold": 5,
+      "held_out_defect": 5,
+      "true_diameter_mm": 8.0,
+      "pred_diameter_mm_mean": 7.825208240364534,
+      "pred_diameter_mm_std": 0.4150492217676276,
+      "n_defect_pixels": 49
+    },
+    {
+      "fold": 6,
+      "held_out_defect": 6,
+      "true_diameter_mm": 8.0,
+      "pred_diameter_mm_mean": 7.732096746718591,
+      "pred_diameter_mm_std": 0.38921949081339446,
+      "n_defect_pixels": 49
+    },
+    {
+      "fold": 7,
+      "held_out_defect": 7,
+      "true_diameter_mm": 6.0,
+      "pred_diameter_mm_mean": 5.999142042585771,
+      "pred_diameter_mm_std": 0.4882955777530216,
+      "n_defect_pixels": 29
+    },
+    {
+      "fold": 8,
+      "held_out_defect": 8,
+      "true_diameter_mm": 6.0,
+      "pred_diameter_mm_mean": 6.152865320584301,
+      "pred_diameter_mm_std": 0.4011967438032197,
+      "n_defect_pixels": 29
+    },
+    {
+      "fold": 9,
+      "held_out_defect": 9,
+      "true_diameter_mm": 6.0,
+      "pred_diameter_mm_mean": 6.721630909025169,
+      "pred_diameter_mm_std": 0.36096428506777256,
+      "n_defect_pixels": 29
+    }
+  ],
+  "n_folds": 9,
+  "r2_leave_one_defect_out": 0.9677974787486066,
+  "rmse_mm": 0.29304161821099045,
+  "mae_mm": 0.20322679805814914,
+  "caveat": "Only 9 defects exist and only 3 distinct diameters (10/8/6 mm). Under leave-one-defect-out there are 8 training defects and at most 2 examples of the held-out diameter. R^2 here is computed over 9 points and should not be presented as a continuous sizing capability."
+}

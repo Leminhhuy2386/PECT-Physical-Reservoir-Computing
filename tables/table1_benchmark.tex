@@ -1,0 +1,42 @@
+\begin{table*}[t]
+\centering
+\caption{Defect detection performance across evaluation protocols. For LOCO + guard band (primary), Macro F1 and Accuracy are reported as mean $\pm$ s.d. over the 9 folds, while Defect Recall and ROC-AUC are reported as the fold-averaged means across the 9 folds (pooled out-of-fold ROC curves are plotted separately in figure~\ref{fig:roc_comparison}a). Macro F1 is the primary metric under severe class imbalance (1.85\% defect ratio). All decision thresholds were selected on a validation split carved from training data; test splits were evaluated once. Bold highlights the recommended spatio-temporal pipeline (filtered patch), which achieves the highest fold-averaged and pooled ROC-AUC, highest accuracy, and strongest noise robustness.}
+\label{tab:benchmark}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}l c c c c c@{}}
+\toprule
+\textbf{Model} & \textbf{State dim.} & \textbf{Macro F1 (\%)} & \textbf{Accuracy (\%)} & \textbf{Defect recall (\%)} & \textbf{ROC-AUC (\%)} \\
+\midrule
+\multicolumn{6}{@{}l}{\textit{LOCO + guard band (primary)}} \\
+\midrule
+Peak amplitude (1D) & 1 & 53.46 $\pm$ 8.76 & 84.14 $\pm$ 6.61 & 24.96 & 72.16 \\
+PCA (10D) & 10 & 63.28 $\pm$ 14.47 & 91.49 $\pm$ 5.90 & 33.25 & 91.18 \\
+Software ESN (50 units) & 50 & 48.61 $\pm$ 4.13 & 87.07 $\pm$ 4.97 & 6.90 & 39.84 \\
+Software ESN (500 units) & 500 & 53.63 $\pm$ 7.09 & 87.76 $\pm$ 5.42 & 14.66 & 54.65 \\
+Physical RC, raw (500D) & 500 & 62.31 $\pm$ 11.64 & 92.27 $\pm$ 2.14 & 24.26 & 88.23 \\
+Physical RC, 3x3 patch (4500D) & 4500 & 68.21 $\pm$ 13.15 & 93.47 $\pm$ 1.64 & 32.94 & 85.81 \\
+\textbf{Physical RC, filtered patch (4500D)} & \textbf{4500} & \textbf{66.30 $\pm$ 19.35} & \textbf{94.39 $\pm$ 1.84} & \textbf{31.59} & \textbf{94.77} \\
+\midrule
+\multicolumn{6}{@{}l}{\textit{Blocked tiles (secondary)}} \\
+\midrule
+Peak amplitude (1D) & 1 & 56.78 & 91.45 & 34.44 & 79.55 \\
+PCA (10D) & 10 & 67.74 & 96.18 & 41.72 & 84.67 \\
+Software ESN (50 units) & 50 & 49.31 & 97.26 & 0.00 & 46.81 \\
+Software ESN (500 units) & 500 & 47.32 & 84.22 & 9.60 & 44.96 \\
+Physical RC, raw (500D) & 500 & 54.57 & 95.28 & 11.26 & 70.90 \\
+Physical RC, 3x3 patch (4500D) & 4500 & 54.85 & 96.63 & 7.95 & 63.60 \\
+\textbf{Physical RC, filtered patch (4500D)} & \textbf{4500} & \textbf{60.80} & \textbf{97.38} & \textbf{14.24} & \textbf{72.72} \\
+\midrule
+\multicolumn{6}{@{}l}{\textit{Random split (optimistic bound)}} \\
+\midrule
+Peak amplitude (1D) & 1 & 52.99 & 92.07 & 24.08 & 79.06 \\
+PCA (10D) & 10 & 76.43 & 97.94 & 64.92 & 89.38 \\
+Software ESN (50 units) & 50 & 50.58 & 96.29 & 3.14 & 69.57 \\
+Software ESN (500 units) & 500 & 56.23 & 94.69 & 25.65 & 83.25 \\
+Physical RC, raw (500D) & 500 & 70.60 & 97.98 & 39.79 & 91.32 \\
+Physical RC, 3x3 patch (4500D) & 4500 & 75.42 & 98.16 & 53.40 & 90.61 \\
+\textbf{Physical RC, filtered patch (4500D)} & \textbf{4500} & \textbf{88.73} & \textbf{99.19} & \textbf{76.44} & \textbf{99.27} \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

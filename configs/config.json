@@ -1,0 +1,198 @@
+{
+    "dataset": {
+        "raw_tdms_path": "/work/huy.leminh/code/Dr.Huy/PECT/Data/Scan 9 Colusiom/Colusion_gaussian_front_4V.tdms",
+        "transient_length": 500,
+        "grid_convention": "all 2-D grids are (rows = y, cols = x)",
+        "expected_n_points": 25760,
+        "expected_sX": 160,
+        "expected_sY": 161,
+        "expected_n_positive": 477,
+        "defect_circles_xyr": [
+            [
+                13,
+                15,
+                5
+            ],
+            [
+                73,
+                15,
+                5
+            ],
+            [
+                133,
+                15,
+                5
+            ],
+            [
+                13,
+                75,
+                4
+            ],
+            [
+                73,
+                75,
+                4
+            ],
+            [
+                133,
+                75,
+                4
+            ],
+            [
+                13,
+                135,
+                3
+            ],
+            [
+                73,
+                135,
+                3
+            ],
+            [
+                133,
+                135,
+                3
+            ]
+        ],
+        "defect_diameter_mm": [
+            10,
+            10,
+            10,
+            8,
+            8,
+            8,
+            6,
+            6,
+            6
+        ],
+        "mm_per_pixel": 1.0,
+        "mm_per_pixel_source": "IMPLIED by the project's own claim that r=5 px corresponds to d=10 mm; NOT independently documented. Any physical-size claim inherits this assumption.",
+        "geometry_calibration": {
+            "applied_offset_dx_dy": [
+                -2,
+                0
+            ],
+            "declared_centres_before_calibration": [
+                [
+                    15,
+                    15,
+                    5
+                ],
+                [
+                    75,
+                    15,
+                    5
+                ],
+                [
+                    135,
+                    15,
+                    5
+                ],
+                [
+                    15,
+                    75,
+                    4
+                ],
+                [
+                    75,
+                    75,
+                    4
+                ],
+                [
+                    135,
+                    75,
+                    4
+                ],
+                [
+                    15,
+                    135,
+                    3
+                ],
+                [
+                    75,
+                    135,
+                    3
+                ],
+                [
+                    135,
+                    135,
+                    3
+                ]
+            ],
+            "method": "Global offset maximising the sum of Welch t^2 over the 500 time channels, in-circle vs surrounding ground annulus, summed over all 9 defects (calibrate_geometry.py).",
+            "sum_t2_declared": 1479448.0,
+            "sum_t2_at_offset": 2014764.0,
+            "relative_gain": 1.362,
+            "radii_note": "Radii kept at the declared 5/4/3 px. The radius scan is biased towards larger radii because max|t| falls with the standard error, which shrinks as pixels are added; measured footprint widths (8-10 px for the r=5 row, 7-9 px for r=4) are consistent with the declared spec.",
+            "all_9_defects_detectable": true,
+            "max_abs_t_per_defect_at_offset": [
+                44.92,
+                94.96,
+                102.5,
+                46.1,
+                56.06,
+                65.39,
+                16.2,
+                21.74,
+                24.13
+            ]
+        }
+    },
+    "protocols": {
+        "primary": "loco_guard",
+        "loco_guard_px": 8,
+        "blocked_tile_px": 16,
+        "blocked_test_fraction": 0.4,
+        "random_test_fraction": 0.4,
+        "validation_fraction_of_train": 0.25,
+        "random_seed": 42,
+        "blocked_guard_px": 7
+    },
+    "models": {
+        "ridge_alpha_dense": 1.0,
+        "ridge_alpha_patch": 10.0,
+        "pca_dim": 10,
+        "patch_size": 3,
+        "esn": {
+            "sizes": [
+                50,
+                500
+            ],
+            "spectral_radius": 0.95,
+            "leak_rate": 0.5,
+            "input_scaling": 0.5,
+            "sparsity": 0.2,
+            "random_seed": 42,
+            "subsample_step": 1,
+            "note": "subsample_step=1 means the ESN is driven with the FULL 500-step transient, matching the input budget of Physical RC. Any value > 1 handicaps the baseline and invalidates the comparison."
+        }
+    },
+    "postprocess": {
+        "median_size": 3,
+        "gaussian_sigma": 1.0,
+        "gaussian_truncate": 4.0,
+        "spatial_reach_px": 6,
+        "spatial_reach_derivation": "patch radius 1 + median radius 1 + gaussian radius int(truncate*sigma+0.5)=4 => 6 px. Any protocol guard band must be >= this, or a test pixel's post-filtered score depends on training-pixel measurements."
+    },
+    "threshold_sweep": {
+        "min": -3.0,
+        "max": 3.0,
+        "num_steps": 601
+    },
+    "noise_evaluation": {
+        "snr_db": [
+            40.0,
+            30.0,
+            20.0,
+            15.0,
+            10.0,
+            5.0
+        ],
+        "n_repeats": 3,
+        "models": [
+            "rc500",
+            "esn50",
+            "patch4500_filt"
+        ]
+    }
+}

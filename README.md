@@ -1,9 +1,10 @@
 # Physical Reservoir Computing with Pulsed Eddy-Current Transients for Corrosion Detection and Sizing: What a Linear Readout Can and Cannot Recover
 
-**Authors:** Thanh Dat Ly¹ and Minhhuy Le²\*  
+**Authors:** Thanh Dat Ly¹, Jinyi Lee²\*, and Minhhuy Le³\*  
 ¹ *ICSLab, Phenikaa School of Engineering, Phenikaa University, Hanoi 12116, Vietnam*  
-² *Faculty of Electrical and Electronic Engineering, Phenikaa School of Engineering, Phenikaa University, Hanoi 12116, Vietnam*  
-\* Corresponding author: `huy.leminh@phenikaa-uni.edu.vn`
+² *Department of Electronic Engineering, Chosun University, Gwangju 61452, South Korea*  
+³ *Faculty of Electrical and Electronic Engineering, Phenikaa School of Engineering, Phenikaa University, Hanoi 12116, Vietnam*  
+\* Corresponding authors: `jinyilee@chosun.ac.kr`, `huy.leminh@phenikaa-uni.edu.vn`
 
 ---
 
